@@ -1,29 +1,58 @@
-/* General Reset */
+/* --- Global Styles & Dark Theme Core --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: #ffffff; /* Clean White main background */
-    color: #212529; /* Dark Charcoal text for optimal contrast */
+    background-color: #030712; /* Deep black base */
+    color: #e2e8f0; /* Off-white text for optimal readability */
     line-height: 1.6;
+    overflow-x: hidden;
 }
 
-/* Navigation */
+/* --- Block & Section Definitions --- */
+section, header {
+    padding: 80px 10%;
+    margin: 40px auto;
+    max-width: 1100px;
+    background: linear-gradient(145deg, #0b1528 0%, #030712 100%); /* Blue-to-Black gradient blocks */
+    border: 1px solid rgba(0, 102, 219, 0.2); /* Soft glowing blue block edges */
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    /* Apply entrance animation to all sections */
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Internal block containers (Forms and Skill boxes) */
+#contact-form, .skills-container {
+    background: #070f21;
+    border: 1px solid rgba(0, 102, 219, 0.15);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* --- Navigation Menu Bar --- */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 10%;
-    background: #f4f7f6; /* Very Light Grey/Blue navbar */
-    border-bottom: 1px solid #e2e8f0;
+    background: rgba(3, 7, 18, 0.9); /* Frosty transparent dark header */
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 102, 219, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 nav .logo {
-    color: #0056b3; /* Rich Corporate Blue logo */
+    color: #38bdf8; /* Bright electric sky blue */
     font-weight: bold;
     font-size: 1.3rem;
 }
@@ -39,62 +68,67 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: #4a5568; /* Medium Slate Blue-Grey links */
+    color: #94a3b8;
     font-weight: 600;
-    transition: color 0.2s;
+    transition: color 0.2s, transform 0.2s;
+    display: inline-block;
 }
 
 nav ul li a:hover {
-    color: #0056b3; /* Transitions to deep blue on hover */
+    color: #38bdf8;
+    transform: translateY(-2px); /* Small menu hover lift */
 }
 
-/* Hero Section */
+/* --- Hero Section Block --- */
 #hero {
-    text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(135deg, #ffffff 0%, #edf2f7 100%); /* Soft Ice-Blue fade */
-    border-bottom: 1px solid #e2e8f0;
+    background: radial-gradient(circle at top right, #002b66, #051329, #030712); /* Immersive dark blue glow */
+    border-top: none;
+    border-radius: 0 0 24px 24px;
+    margin-top: 0;
+    padding: 120px 20px;
 }
 
 #hero h1 {
     font-size: 3rem;
     margin-bottom: 10px;
-    color: #1a202c; /* Deep navy tone */
+    color: #ffffff;
 }
 
 .highlight {
-    color: #0056b3; /* Electric Tech Blue accent */
-    border-bottom: 2px solid #cbd5e0;
+    color: #38bdf8;
+    text-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
 }
 
 .bio {
     max-width: 600px;
     margin: 15px auto 0 auto;
     font-size: 1.1rem;
-    color: #4a5568;
+    color: #94a3b8;
 }
 
 .btn {
     display: inline-block;
     margin-top: 20px;
     padding: 10px 25px;
-    background: #0056b3; /* Premium Royal Blue button */
+    background: #0066db;
     color: #ffffff;
     text-decoration: none;
-    border-radius: 4px;
+    border-radius: 6px;
     font-weight: bold;
-    transition: background 0.2s;
+    box-shadow: 0 4px 15px rgba(0, 102, 219, 0.4);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    /* Continuous floating movement */
+    animation: float 3s ease-in-out infinite; 
 }
 
 .btn:hover {
-    background: #004085; /* Darker navy blue on hover */
+    background: #38bdf8;
+    box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6);
 }
 
-/* Interactive Photo Gallery */
+/* --- Interactive Photo Gallery Block --- */
 #gallery {
-    padding: 60px 10%;
-    background: #f7fafc; /* Light Blue-Grey background wrapper */
-    text-align: center;
+    background: linear-gradient(145deg, #030712 0%, #0b1528 100%);
 }
 
 .gallery-grid {
@@ -108,24 +142,19 @@ nav ul li a:hover {
     width: 100%;
     height: 150px;
     object-fit: cover;
-    border-radius: 6px;
-    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 102, 219, 0.2);
     cursor: pointer;
-    transition: transform 0.2s, border-color 0.2s;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.3s, box-shadow 0.3s;
 }
 
 .gallery-thumb:hover {
-    transform: scale(1.03);
-    border-color: #0056b3;
+    transform: scale(1.05) translateY(-4px); /* Hover pop-up action */
+    border-color: #38bdf8;
+    box-shadow: 0 8px 20px rgba(0, 102, 219, 0.4);
 }
 
-/* Projects Grid */
-#projects {
-    padding: 60px 10%;
-    background: #ffffff;
-    text-align: center;
-}
-
+/* --- Project Grid Cards Block --- */
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -134,40 +163,43 @@ nav ul li a:hover {
 }
 
 .card {
-    background: #f7fafc; /* Soft Ice-Blue panel containers */
+    background: #070f21; /* Card block design */
     padding: 25px;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    border: 1px solid rgba(0, 102, 219, 0.15);
     text-align: left;
+    transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-6px); /* Card hover animation */
+    border-color: #38bdf8;
+    box-shadow: 0 10px 20px rgba(0, 102, 219, 0.3);
 }
 
 .card h3 {
-    color: #1a202c;
+    color: #ffffff;
     margin-bottom: 10px;
 }
 
 .card p {
-    color: #4a5568;
+    color: #94a3b8;
 }
 
 .tech-tag {
     display: inline-block;
-    background: #ebf8ff; /* Soft sky blue tech badges */
-    color: #2b6cb0; /* Deep blue badge text */
+    background: rgba(0, 102, 219, 0.2);
+    color: #38bdf8;
     padding: 3px 8px;
     font-size: 0.8rem;
     border-radius: 4px;
     margin-top: 15px;
     margin-right: 5px;
     font-weight: 600;
+    border: 1px solid rgba(56, 189, 248, 0.2);
 }
 
-/* Skills Section Style */
-#skills {
-    padding: 60px 10%;
-    background: #f7fafc;
-}
-
+/* --- Technical Skills Bars Block --- */
 .skills-container {
     max-width: 600px;
     margin: 30px auto 0 auto;
@@ -183,13 +215,13 @@ nav ul li a:hover {
     justify-content: space-between;
     font-weight: 600;
     margin-bottom: 5px;
-    color: #2d3748;
+    color: #e2e8f0;
 }
 
 .progress-line {
     height: 8px;
     width: 100%;
-    background: #e2e8f0; /* Track slider base path */
+    background: #1e293b;
     border-radius: 4px;
     position: relative;
     overflow: hidden;
@@ -197,28 +229,20 @@ nav ul li a:hover {
 
 .progress-line span {
     height: 100%;
-    background: linear-gradient(90deg, #63b3ed, #0056b3); /* Bright-to-royal blue slider filling */
+    background: linear-gradient(90deg, #0066db, #38bdf8); /* Blue loading fill gradient */
     position: absolute;
     left: 0;
     top: 0;
     border-radius: 4px;
     display: block;
+    /* Triggers line animation on page startup */
+    animation: loadBars 1.5s ease-out forwards; 
 }
 
-/* Contact Form Layout */
-#contact {
-    padding: 60px 10%;
-    background: #ffffff;
-    text-align: center;
-}
-
+/* --- Contact Form Block --- */
 #contact-form {
     max-width: 500px;
     margin: 30px auto 0 auto;
-    background: #f7fafc;
-    padding: 30px;
-    border-radius: 8px;
-    border: 1px solid #e2e8f0;
     text-align: left;
 }
 
@@ -231,60 +255,63 @@ nav ul li a:hover {
     font-weight: 600;
     margin-bottom: 5px;
     font-size: 0.9rem;
-    color: #4a5568;
+    color: #94a3b8;
 }
 
 .form-group input, .form-group textarea {
     width: 100%;
     padding: 10px;
-    background: #ffffff; /* Crisp white interior input fields */
-    border: 1px solid #cbd5e0;
-    color: #1a202c;
-    border-radius: 4px;
+    background: #030712; /* Dark input fill */
+    border: 1px solid rgba(0, 102, 219, 0.3);
+    color: #ffffff;
+    border-radius: 6px;
     font-family: inherit;
     font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .form-group input:focus, .form-group textarea:focus {
     outline: none;
-    border-color: #0056b3;
+    border-color: #38bdf8;
+    box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
 }
 
 .submit-btn {
     width: 100%;
     padding: 12px;
-    background: #0056b3;
+    background: #0066db;
     color: #ffffff;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 102, 219, 0.3);
     transition: background 0.2s;
 }
 
 .submit-btn:hover {
-    background: #004085;
+    background: #38bdf8;
 }
 
-/* Dynamic Alert UI Box */
+/* --- Dynamic Alert UI Box --- */
 .alert-box {
     display: none;
     max-width: 500px;
     margin: 15px auto 0 auto;
     padding: 12px;
-    border-radius: 4px;
+    border-radius: 6px;
     font-weight: bold;
 }
 
 .alert-success {
     display: block;
-    background-color: #ebf8ff;
-    color: #2b6cb0;
-    border: 1px solid #bee3f8;
+    background-color: #0b1528;
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.3);
 }
 
-/* Lightbox Modal Window */
+/* --- Pop-up Image Viewer Components --- */
 .modal {
     display: none; 
     position: fixed;
@@ -293,7 +320,7 @@ nav ul li a:hover {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.96); /* White transparent overlay background */
+    background-color: rgba(3, 7, 18, 0.95); /* Deep dark overlay backdrop */
 }
 
 .modal-content-container {
@@ -308,12 +335,12 @@ nav ul li a:hover {
 #lightbox-img {
     max-width: 100%;
     max-height: 70vh;
-    border-radius: 4px;
-    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    border: 2px solid rgba(0, 102, 219, 0.3);
 }
 
 #lightbox-caption {
-    color: #4a5568;
+    color: #94a3b8;
     margin-top: 15px;
     font-size: 1.1rem;
 }
@@ -323,7 +350,7 @@ nav ul li a:hover {
     position: absolute;
     top: 20px;
     right: 35px;
-    color: #0056b3;
+    color: #38bdf8;
     font-size: 40px;
     cursor: pointer;
 }
@@ -332,19 +359,42 @@ nav ul li a:hover {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    color: #0056b3;
+    color: #38bdf8;
     font-size: 30px;
     font-weight: bold;
     padding: 16px;
     cursor: pointer;
     user-select: none;
     text-decoration: none;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, color 0.2s;
 }
 
 .prev-btn { left: 20px; }
 .next-btn { right: 20px; }
 
 .prev-btn:hover, .next-btn:hover {
-    background-color: rgba(0, 86, 179, 0.08);
+    background-color: rgba(0, 102, 219, 0.1);
+    color: #ffffff;
+}
+
+/* --- Native CSS Keyframe Animation Engines --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes loadBars {
+    from { width: 0%; }
 }
