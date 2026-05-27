@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">MyPortfolio</div>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Header Section -->
+    <header id="hero">
+        <h1>Hi, I'm <span class="highlight">Nathi Nkuna</span></h1>
+        <p>An IT Graduate at Vaal Universuty of Technology and an IT Intern at Initium Venture Solutions</p>
+        <p class="bio">I am passionate in process automation-the art of using code to eliminate tedious, repetitive tasks for your colleagues. There is a unique thrill in taking a broken, manual system, like tracking student records or managing inventory, and transforming it into a clean, automated application with Python or web tools. By mastering how to bridge the gap between complex software logic and user-friendly design, you become the ultimate problem solver in your workplace. This focus not only saves your team hundreds of hours but also builds a highly valuable skillset that sets you apart as a forward-thinking developer.</p>
+        <a href="#projects" class="btn">View My Work</a>
+    </header>
+
+    <!-- Interactive Photo Gallery Section -->
+    <section id="gallery">
+        <h2>My Workspace & Highlights</h2>
+        <p>Click on any photo to expand and control view</p>
+
+        <div class="gallery-grid">
+            <!-- Replace 'image1.jpg' with your real image files or URLs -->
+            <img src="download.jpg" alt="My Workstation Setup" class="gallery-thumb" onclick="openLightbox(0)">
+            <img src="download 1.jpg" alt="Coding the Student Intake GUI" class="gallery-thumb" onclick="openLightbox(1)">
+            <img src="download 2.jpg" alt="IT Infrastructure Deployment" class="gallery-thumb" onclick="openLightbox(2)">
+        </div>
+    </section>
+
+    <!-- Lightbox Modal Pop-up (Hidden by default) -->
+    <div id="lightbox" class="modal">
+        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+        <div class="modal-content-container">
+            <img id="lightbox-img" src="" alt="Expanded View">
+            <div id="lightbox-caption"></div>
+        </div>
+        <!-- Picture Navigation Controls -->
+        <a class="prev-btn" onclick="changeImage(-1)">&#10094;</a>
+        <a class="next-btn" onclick="changeImage(1)">&#10095;</a>
+    </div>
+
+
+    <!-- Projects Grid Section -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Student Intake System</h3>
+                <p>A Python desktop GUI application built using Tkinter to register and track student enrollment.</p>
+                <span class="tech-tag">Python</span> <span class="tech-tag">Tkinter</span>
+            </div>
+            <div class="card">
+                <h3>Project Two</h3>
+                <p>Description of another awesome system or web app you have built recently.</p>
+                <span class="tech-tag">HTML/CSS</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section with Progress Bars -->
+    <section id="skills">
+        <h2>My Technical Skills</h2>
+        <div class="skills-container">
+
+            <div class="skill-bar-wrapper">
+                <div class="skill-info">
+                    <span>Python & Desktop GUI (Tkinter)</span>
+                    <span>85%</span>
+                </div>
+                <div class="progress-line"><span style="width: 85%;"></span></div>
+            </div>
+
+            <div class="skill-bar-wrapper">
+                <div class="skill-info">
+                    <span>HTML5 / CSS3 / JavaScript</span>
+                    <span>75%</span>
+                </div>
+                <div class="progress-line"><span style="width: 75%;"></span></div>
+            </div>
+
+            <div class="skill-bar-wrapper">
+                <div class="skill-info">
+                    <span>IT Infrastructure & Troubleshooting</span>
+                    <span>90%</span>
+                </div>
+                
+                <div class="skill-bar-wrapper">
+                    <div class="skill-info">
+                        <span>HTML5 / CSS3 / JavaScript</span>
+                        <span>75%</span>
+                </div>
+                <div class="progress-line"><span style="width: 90%;"></span></div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Upgraded Contact Section with Live Form -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p>Have an IT challenge or a project? Drop a message below!</p>
+
+        <form id="contact-form" onsubmit="handleFormSubmit(event)">
+            <div class="form-group">
+                <label for="user-name">Your Name</label>
+                <input type="text" id="user-name" required placeholder="John Doe">
+            </div>
+
+            <div class="form-group">
+                <label for="user-email">Email Address</label>
+                <input type="email" id="user-email" required placeholder="john@example.com">
+            </div>
+
+            <div class="form-group">
+                <label for="user-message">Your Message</label>
+                <textarea id="user-message" rows="5" required placeholder="Tell me about your project or system requirements..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+
+        <!-- Success UI Notification Box -->
+        <div id="form-alert" class="alert-box"></div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p>Email: nathinkuna1000@gmail.com</p>
+        <p>LinkedIn: https://www.linkedin.com/in/nathi-nkuna-753936324?utm_source=share_via&utm_content=profile&utm_medium=member_ios</p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
